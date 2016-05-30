@@ -1,0 +1,5 @@
+radio_r1 = ba
+check_c1 = do
+check_c2 = re
+text_t1 = 323
+textarea_ta1 = sfvxv
