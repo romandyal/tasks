@@ -5,11 +5,14 @@ $descriptArr = file("descript.ion", FILE_IGNORE_NEW_LINES);
 //print_r($descriptArr);
 
 $imgArr = [];
+echo "<pre>";
 foreach ($descriptArr as $item) {
 
-    preg_match("/(.+)\s/uU", $item, $temp);
-    preg_match("/\s(.+)/u", $item, $descript);
-    $imgArr["$temp[1]"] = $descript[1];
+//    preg_match("/(.+)\s/uU", $item, $temp);
+//    preg_match("/\s(.+)/u", $item, $descript);
+    preg_match("/(.*\..{3})\ (.+)$/u", $item, $arr);
+//    print_r($arr);
+    $imgArr["$arr[1]"] = $arr[2];
 }
 //print_r($imgArr);
 $i = 0;
@@ -49,7 +52,7 @@ $i = 0;
                 <img src="./pic/<?=$imgName?>" alt="<?=$desc?>">
                 <p><?=$desc?></p>
             </td>
-        <?php if($i % 3 == 0) echo"</tr>";  ?>
+        <?php if($i % 3 == 0) echo"</tr>"; ?>
     <?php endforeach; ?>
     </tbody>
 </table>
